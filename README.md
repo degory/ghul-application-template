@@ -9,7 +9,7 @@ This is a template for quick-starting a ghūl language application project and d
 
 ## CI/CD status
 
-![CI/CD](https://github.com/degory/ghul-template/workflows/CI/CD/badge.svg?branch=main)
+![CI/CD](https://github.com/degory/ghul-application-template/workflows/CI/CD/badge.svg?branch=main)
 
 ## Prerequisites
 

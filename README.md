@@ -17,7 +17,7 @@ This is a template for quick-starting a ghūl language application project and d
   - GitHub [Codespaces](https://github.com/features/codespaces)
   - Windows 10 with [Docker Desktop](https://www.docker.com/products/docker-desktop) and the VSCode [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension 
   - Windows 10 with [WSL2](https://docs.microsoft.com/en-us/windows/wsl/install-win10), configured to run Linux with a recent version of [Mono](https://www.mono-project.com/), plus the VSCode [Remote - WSL](https://marketplace.visualstudio.com/items?,itemName=ms-vscode-remote.remote-wsl) extension  
-  - Native Linux + Mono
+  - Linux
 - Visual Studio Code
 
 ## Getting started with GitHub Codespaces
@@ -49,15 +49,51 @@ Once the prerequisites for development containers are working, clone this templa
 
 Visual Studio Code will create a container and a unique volume to hold your application.
 
-## Building the application
+## Getting started on Linux
+
+The ghūl compiler is a native Linux application and should run on any Linux distribution, provided Mono and Boehm GC are installed.
+
+### Install the Mono development environment
+
+Applications built with ghūl will happily run under .NET Core or Mono, but the compiler itself depends on Mono's ILAsm. Any recent version of Mono's ILAsm should work.
+
+On Ubuntu or Debian, install the Mono development environment with:
+
+```apt-get install mono-devel```
+
+### Install Boehm GC
+
+The compiler depends on the Boehm–Demers–Weiser garbage collector. On Ubuntu or Debian, install it with:
+
+```apt-get install ligc1c2```
+
+### Install the ghūl compiler
+
+Download the latest version of the [ghūl compiler installer script](https://github.com/degory/ghul-releases/releases/latest/download/ghul.run) and run it with Bash. For example:
+
+```curl -L https://github.com/degory/ghul-releases/releases/latest/download/ghul.run -o ghul.run```
+
+```bash ./ghul.run```
+
+
+### Verify the compiler installation
+
+If you run the ghūl compiler from a shell with no arguments, it should report a version number:
+
+```
+$ ghul
+ghūl v0.2.4
+```
+
+## Building the sample application
 The default VSCode build task is auto-configured, so you can build the application with either:
 - `Ctrl` + `Shift` + `B`, or
 - `Ctrl` + `Shift` + `P`, choose `Run Task`, then choose the build task from the list
 
-## Running the application
+## Running the sample application
 The build output is a simple .NET console application (`hello-world.exe`), which can be run:
 - from the command line with Mono: `mono hello-world.exe`
-- from the command line with .NET Core: `dotnet hello-world.exe` (provided you have .NET Core installed - note, it's not pre-installed in the development container)
+- from the command line with .NET Core: `dotnet hello-world.exe` (provided you have .NET Core 3.1 installed - note, it's not pre-installed in the development container)
 - via the pre-configured VSCode test task: `Ctrl` + `Shift` + `P`, choose `Run Task`, choose the run task from the list
 
 ## Nice to have

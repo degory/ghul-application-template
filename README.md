@@ -1,6 +1,6 @@
-# ghūl application template project
+# ghūl application template
 
-This is a template for quick-starting a ghūl language application project and demonstrating language features:
+This is a template for quick-starting a [ghūl language](https://ghul.io) application project and demonstrating language features:
 
 - The target is a .NET Core console application that will run under Mono and .NET Core 3.1
 - The project is pre-configured for rich language support and build tasks in Visual Studio Code
@@ -9,7 +9,7 @@ This is a template for quick-starting a ghūl language application project and d
 
 ## CI/CD status
 
-![CI/CD](https://github.com/degory/ghul-application-template/workflows/CI/CD/badge.svg?branch=main)
+ [![CI/CD](https://github.com/degory/ghul-application-template/workflows/CI/CD/badge.svg?branch=main)](https://github.com/degory/ghul-application-template/actions?query=workflow%3ACI%2FCD)
 
 ## Prerequisites
 
@@ -19,14 +19,15 @@ This is a template for quick-starting a ghūl language application project and d
   - Windows 10 with [WSL2](https://docs.microsoft.com/en-us/windows/wsl/install-win10), configured to run Linux with a recent version of [Mono](https://www.mono-project.com/), plus the VSCode [Remote - WSL](https://marketplace.visualstudio.com/items?,itemName=ms-vscode-remote.remote-wsl) extension  
   - Linux
 - Visual Studio Code
+- An instance of this template in your own GitHub (click the `Use this template` button)
 
 ## Getting started with GitHub Codespaces
 
-If you have access to GitHub [Codespaces](https://github.com/features/codespaces) then you can clone this repository into a Codespace container and develop your application directly in the browser.
+If you have access to GitHub [Codespaces](https://github.com/features/codespaces) then you can open your new application's repository into a Codespace container and develop directly in your browser.
 
 ## Getting started with a development container on Windows 10
 
-The easiest way to get up and running on Windows is via a development container. The template repository includes a `.devcontainer` folder, which will set up a local container with the dependencies needed to build .NET applications in ghūl.
+The easiest way to get up and running on Windows is via a development container. This template includes a `.devcontainer` folder, which will set up a local container with the dependencies needed to build .NET applications in ghūl.
 
 ### Development container prerequisites
 
@@ -35,14 +36,14 @@ VSCode development containers have a standard set of prerequisites that you need
 - The [WSL2 back-end](https://docs.docker.com/docker-for-windows/wsl/) for Docker Desktop
 - The Visual Studio Code [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension
 
-### Clone the template in a container
+### Open your new application repository in a container
 
-Once the prerequisites for development containers are working, clone this template repository from GitHub into a new unique volume:
+Once the prerequisites for development containers are working, clone your new application repository from GitHub into a new unique volume:
 - Open a new Visual Studio Code window
 - If you have no pre-existing development containers, you may be offered the option to `Clone Repository in Container Volume` - if so, choose this option.
 - Otherwise, either:
     - Open the Remote Explorer from activity bar on the left
-    - Click `+` icon
+    - Click the `+` icon
     - Choose `Clone Repository in Container Volume` from the menu
 - or
     - `Ctrl` + `P`
@@ -50,12 +51,13 @@ Once the prerequisites for development containers are working, clone this templa
     - Start typing `Clone Repository in Container Volume`, and select that option when it appears
 - Choose `+ Create a unique volume` when prompted
 
-Visual Studio Code will create a container and a unique volume to hold your application.
+Visual Studio Code will create a container and a unique volume to hold your application source.
 
-## Getting started on native Linux
+## Getting started on native Linux or on WSL2 on Windows
 
-The ghūl compiler is a native Linux application so a container is not needed.
-The compiler should run on any Linux distribution, provided Mono and Boehm GC are installed.
+The ghūl compiler is a native Linux application and can be run on Linux or on WSL2 on Windows without a container, however ghūl is an experimental languguage and the compiler may be unstable: using the development container is the safer option. 
+
+If you prefer to use native Linux or on WSL2 rather than the development container, then the compiler should run on any recent distribution, provided Mono and Boehm GC are installed.
 
 ### Install the Mono development environment
 
@@ -75,9 +77,13 @@ The compiler depends on the Boehm–Demers–Weiser garbage collector. On Ubuntu
 
 Download the latest version of the [ghūl compiler installer script](https://github.com/degory/ghul-releases/releases/latest/download/ghul.run) and run it with Bash. For example:
 
-```curl -L https://github.com/degory/ghul-releases/releases/latest/download/ghul.run -o ghul.run```
+```
+curl -L https://github.com/degory/ghul-releases/releases/latest/download/ghul.run -o ghul.run
+```
 
-```bash ./ghul.run```
+```
+bash ./ghul.run
+```
 
 ### Verify the compiler installation
 
@@ -85,36 +91,31 @@ If you run the ghūl compiler from a shell with no arguments, it should report a
 
 ```
 $ ghul
-ghūl v0.2.4
+ghūl v0.2.7
 ```
 
 ### Opening in Visual Studio Code
 
-When you open the source folder VSCode will open a dialog asking if you want to reopen the project in a container - decline this offer.
-You can stop VSCode from nagging either by checking the "Don't ask again" option or by deleting the project's .devcontainer folder.
+When you open the source folder VSCode will ask if you want to reopen the project in a container. Decline this by clicking the "Don't Show Again" button to avoid being prompted every time to reopen the folder.
 
-## Using this template repository
-
-This is a GitHub template repository. If you want to contribute to this template then can simply clone it, but if you intend to use it as the base
-for a new application, you should click the `Use this template` button instead to avoid bringing in this repo's Git history.
-
-
-## Building the sample application
+## Building your ghūl application
 
 The default VSCode build task is auto-configured, so you can build the application with either:
 - `Ctrl` + `Shift` + `B`, or
 - `Ctrl` + `Shift` + `P`, choose `Run Task`, then choose the build task from the list
 
-## Running the sample application
+## Running your application
 
 The build output is a simple .NET console application (`hello-world.exe`), which can be run:
 - from the command line with Mono: `mono hello-world.exe`
 - from the command line with .NET Core: `dotnet hello-world.exe` (provided you have .NET Core 3.1 installed - note, it's not pre-installed in the development container)
 - via the pre-configured VSCode test task: `Ctrl` + `Shift` + `P`, choose `Run Task`, choose the run task from the list
 
-## Using the template for your own application
+## Customizing your application
 
-As well as renaming the source file you will need to change references to it in tasks.json, build/build.sh . Exit and restart VSCode.
+- The sample application executable is named `hello-world.exe`. You can change this by editing `tasks.json` and `build/build.sh`
+- Add additional `.ghul` source files to the `src/` folder
+- If you delete or rename source files, restart VSCode or reload the folder (`Ctrl` + `Shift` + `P`, `Developer: Reload Window`) (see [ghūl issue 388](https://github.com/degory/ghul/issues/388))
 
 ## Nice to have
 
@@ -124,3 +125,5 @@ ghūl source code looks best in the [Fira Code](https://github.com/tonsky/FiraCo
     "editor.fontLigatures": "'ss07'",
     "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
 ```
+
+

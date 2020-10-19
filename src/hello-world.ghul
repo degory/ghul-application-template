@@ -15,13 +15,7 @@ namespace HelloWorld is
         si
 
         write_hello_world() is
-            let list = new Collections.LIST[System.String]();
-
-            list.add("Hello");
-            list.add(" ");
-            list.add("World");
-            list.add("!");
-            list.add("\n");
+            let list = ["Hello", " ", "World", "!", "\n"];
 
             for s in list do
                 System.Console.write(s);

@@ -17,7 +17,8 @@ This is a template for quick-starting a [ghūl language](https://ghul.io) applic
   - GitHub [Codespaces](https://github.com/features/codespaces)
   - Windows 10 with [Docker Desktop](https://www.docker.com/products/docker-desktop) and the VSCode [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension 
   - Windows 10 with [WSL2](https://docs.microsoft.com/en-us/windows/wsl/install-win10), configured to run Linux with a recent version of [Mono](https://www.mono-project.com/), plus the VSCode [Remote - WSL](https://marketplace.visualstudio.com/items?,itemName=ms-vscode-remote.remote-wsl) extension  
-  - Linux
+  - Linux with Docker and the VSCode [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension
+  - Linux with a recent version of [Mono](https://www.mono-project.com/)
 - Visual Studio Code
 - An instance of this template in your own GitHub (click the `Use this template` button)
 
@@ -25,7 +26,7 @@ This is a template for quick-starting a [ghūl language](https://ghul.io) applic
 
 If you have access to GitHub [Codespaces](https://github.com/features/codespaces) then you can open your new application's repository into a Codespace container and develop directly in your browser.
 
-## Getting started with a development container on Windows 10
+## Getting started on Windows 10 with a development container
 
 The easiest way to get up and running on Windows is via a development container. This template includes a `.devcontainer` folder, which will set up a local container with the dependencies needed to build .NET applications in ghūl.
 
@@ -53,11 +54,11 @@ Once the prerequisites for development containers are working, clone your new ap
 
 Visual Studio Code will create a container and a unique volume to hold your application source.
 
-## Getting started on native Linux or on WSL2 on Windows
+## Getting started with on Windows with WSL2 or on native Linux 
 
-The ghūl compiler is a native Linux application and can be run on Linux or on WSL2 on Windows without a container, however ghūl is an experimental languguage and the compiler may be unstable: using the development container is the safer option. 
+The ghūl compiler can be run on Linux or on WSL2 on Windows without a container, however ghūl is an experimental languguage and the compiler may be unstable: using the development container is the safer option. 
 
-If you prefer to use native Linux or on WSL2 rather than the development container, then the compiler should run on any recent distribution, provided Mono and Boehm GC are installed.
+If you prefer to use native Linux or WSL2 rather than the development container, then the compiler should run on any recent Linux distribution provided that Mono, including Mono's ILAsm, is installed.
 
 ### Install the Mono development environment
 
@@ -65,24 +66,21 @@ Applications built with ghūl will happily run under .NET Core or Mono, but the 
 
 On Ubuntu or Debian, install the Mono development environment with:
 
-```apt-get install mono-devel```
+```
+$ apt-get install mono-devel
+```
 
-### Install Boehm GC
-
-The compiler depends on the Boehm–Demers–Weiser garbage collector. On Ubuntu or Debian, install it with:
-
-```apt-get install ligc1c2```
 
 ### Install the ghūl compiler
 
-Download the latest version of the [ghūl compiler installer script](https://github.com/degory/ghul-releases/releases/latest/download/ghul.run) and run it with Bash. For example:
+Download the latest version of the [ghūl compiler installer script](https://github.com/degory/ghul/releases/latest/download/ghul.run) and run it with Bash. For example:
 
 ```
-curl -L https://github.com/degory/ghul-releases/releases/latest/download/ghul.run -o ghul.run
+$ curl -L https://github.com/degory/ghul-releases/releases/latest/download/ghul.run -o ghul.run
 ```
 
 ```
-bash ./ghul.run
+$ bash ./ghul.run
 ```
 
 ### Verify the compiler installation
@@ -91,12 +89,16 @@ If you run the ghūl compiler from a shell with no arguments, it should report a
 
 ```
 $ ghul
-ghūl v0.2.7
+ghūl v0.2.51
 ```
 
 ### Opening in Visual Studio Code
 
 When you open the source folder VSCode will ask if you want to reopen the project in a container. Decline this by clicking the "Don't Show Again" button to avoid being prompted every time to reopen the folder.
+
+### Install the ghūl Visual Studio Code extension
+
+Search for 'ghul' on the Visual Studio Code extensions marketplace. The extension's full name is 'ghūl language support' and the publisher is 'degory'
 
 ## Building your ghūl application
 

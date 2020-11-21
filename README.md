@@ -20,7 +20,7 @@ This is a template for quick-starting a [ghūl language](https://ghul.io) applic
   - Linux with Docker and the VSCode [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension
   - Linux with a recent version of [Mono](https://www.mono-project.com/)
 - Visual Studio Code
-- An instance of this template in your own GitHub (click the `Use this template` button)
+- An instance of this template in your own GitHub (click the [`Use this template`](https://github.com/degory/ghul-application-template/generate) button)
 
 ## Getting started with GitHub Codespaces
 
@@ -62,7 +62,7 @@ If you prefer to use native Linux or WSL2 rather than the development container,
 
 ### Install the Mono development environment
 
-Applications built with ghūl will happily run under .NET Core or Mono, but the compiler itself depends on Mono's ILAsm. Any recent version of Mono's ILAsm should work.
+Applications built with ghūl will happily run under .NET Core or Mono, but the compiler itself must be run under Mono version 6
 
 On Ubuntu or Debian, install the Mono development environment with:
 

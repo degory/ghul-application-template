@@ -2,7 +2,7 @@
 
 This is a template for quick-starting a [ghūl language](https://ghul.io) application project and demonstrating language features:
 
-- The target is a .NET Core console application that will run under Mono and .NET Core 3.1
+- The target is a .NET console application that will run under Mono 6 and .NET 5
 - The project is pre-configured for rich language support and build tasks in Visual Studio Code
 - Continuous integration is supported via a basic build and test pipeline running on GitHub Actions
 - The example code demonstrates various ghūl language constructs
@@ -58,11 +58,11 @@ Visual Studio Code will create a container and a unique volume to hold your appl
 
 The ghūl compiler can be run on Linux or on WSL2 on Windows without a container, however ghūl is an experimental languguage and the compiler may be unstable: using the development container is the safer option. 
 
-If you prefer to use native Linux or WSL2 rather than the development container, then the compiler should run on any recent Linux distribution provided that Mono, including Mono's ILAsm, is installed.
+If you prefer to use native Linux or WSL2 rather than the development container, then the compiler should run on any recent Linux distribution provided that Mono version 6 is installed.
 
 ### Install the Mono development environment
 
-Applications built with ghūl will happily run under .NET Core or Mono, but the compiler itself must be run under Mono version 6
+Applications built with ghūl will happily run under both .NET and Mono, but the compiler itself must be run under Mono version 6
 
 On Ubuntu or Debian, install the Mono development environment with:
 
@@ -89,7 +89,7 @@ If you run the ghūl compiler from a shell with no arguments, it should report a
 
 ```
 $ ghul
-ghūl v0.2.51
+ghūl v0.2.56
 ```
 
 ### Opening in Visual Studio Code
@@ -110,7 +110,7 @@ The default VSCode build task is auto-configured, so you can build the applicati
 
 The build output is a simple .NET console application (`hello-world.exe`), which can be run:
 - from the command line with Mono: `mono hello-world.exe`
-- from the command line with .NET Core: `dotnet hello-world.exe` (provided you have .NET Core 3.1 installed - note, it's not pre-installed in the development container)
+- from the command line with .NET: `dotnet hello-world.exe` (provided you have the .NET 5 runtime installed - note, it's not pre-installed in the development container)
 - via the pre-configured VSCode test task: `Ctrl` + `Shift` + `P`, choose `Run Task`, choose the run task from the list
 
 ## Customizing your application

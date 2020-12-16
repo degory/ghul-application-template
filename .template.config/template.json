@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "degory",
+  "classifications": [ "Console" ], 
+  "name": "ghūl 'hello world' console application",
+  "identity": "degory.ghūl.hello-world",         
+  "groupIdentity":"degory.ghūl.hello-world",
+  "shortName": "ghul-hello-world",
+  "tags": {
+    "language": "ghul",
+    "type":"project"
+  },
+  "sourceName": "ghul-hello-world",
+  "preferNameDirectory":true
+}

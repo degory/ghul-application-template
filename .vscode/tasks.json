@@ -13,7 +13,7 @@
         },
         {
             "label": "Run hello-world.exe",
-            "command": "mono hello-world.exe",
+            "command": "dotnet hello-world.exe",
             "type": "shell",
             "group": {
                 "kind": "test",

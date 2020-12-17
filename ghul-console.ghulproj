@@ -4,13 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
-  <Target Name="CoreCompile">
-    <Message Importance="High" Text="CoreCompile target reached" />
-  </Target>
-
   <Target Name="CreateManifestResourceNames" />
 
-  <Target Name="GhulCompile" BeforeTargets="Compile">
+  <Target Name="CoreCompile">
 
     <ItemGroup>
       <GhulSources Include="src/**/*.ghul" />
